@@ -1,0 +1,65 @@
+
+
+
+
+<nav class="navbar navbar-default">
+<div class="container">
+
+<ul class="nav navbar-nav navbar-right">
+        <li><a href="#home">Welcome</a></li>
+        <li><a href="#monitor">Monitor class</a></li>
+        <li><a ng-href="#" ng-click="logout()">Logout</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div class="container ">
+<div class="row">
+<div class="form-group col-md-6">
+  <label for="sel1">Select class:</label>
+  <select class="form-control" ng-change="populate_students()" ng-model="stu.selectedClass">
+  <option ng-repeat="key in names">{{key.class}}</option>
+  </select>
+</div>
+</div>
+<div class="row">
+<div class="form-group col-md-6">
+  <label for="sel1">Select student:</label>
+  <select class="form-control" ng-change="display_info()" ng-model="stu.selectedStudent" ng-options="c.name for c in students">
+  </select>
+</div>
+</div>
+
+
+	
+<div ng-show="stu.selectedStudent">
+<h2>Student Information</h2>
+</div>
+<table class="table">
+
+	<thead>
+
+	<tr ng-repeat="key in stu_info">
+		<th>Selected class</th>
+		<th>Name</th>
+		<th>Contact</th>
+
+		<th>{{key.subject1}}</th>
+		<th>{{key.subject2}}</th>
+		<th>{{key.subject3}}</th>
+		<th>Average</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="key in stu_info">
+		<td>{{key.selectedClass}}</td>
+		<td>{{key.name}}</td>
+		<td>{{key.contact}}</td>
+		<td>{{key.mark1}}</td>
+		<td>{{key.mark2}}</td>
+		<td>{{key.mark3}}</td>
+		<td>{{ getAverage() }}</td>
+		</tr>
+	</tbody>
+</table>
+</div>

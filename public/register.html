@@ -1,0 +1,44 @@
+
+<div class="container" >
+<h2>Register</h2>
+<br>
+<div class="row">  
+   
+<div class="col-sm-6">
+    <!-- FORM ============ -->
+  
+    <!-- <form name="userForm" data-ng-submit="addPerson()" novalidate> -->
+    <form name="userForm" novalidate>
+
+       
+         <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Username*</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Your username is required.</p>
+        </div>
+        
+        
+        <!-- PASSWORD -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+            <label>Password*</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password" required>
+            <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Your password is required.</p>
+        </div>
+        
+        
+        <!-- <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button> -->
+        <button ng-click="register()" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button>
+
+        
+    </form>
+
+    <br>
+        <br>
+        Already Registered?
+        <br>
+        <br><a href="#login" class="btn btn-primary" role="button">Login</a>
+  </div>
+  
+</div>
+</div>

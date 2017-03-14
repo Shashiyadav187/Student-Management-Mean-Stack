@@ -1,0 +1,41 @@
+
+<div class="container">
+<h2>Login</h2>
+<br>
+<div class="row">  
+   
+<div class="col-sm-6">
+    <!-- FORM ============ -->
+  
+    <form name="userForm"  novalidate>
+      
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Username*</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Your username is required.</p>
+        </div>
+        
+        <!-- PASSWORD -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+            <label>Password*</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password" required>
+            <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Your password is required.</p>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="check()">Login</button>
+        <br>
+        <div ng-show="error">Username or password is incorrect</div>
+        <br>
+        Not Registered yet?
+        <br>
+        <br><a href="#register" class="btn btn-primary" role="button">Register</a>
+         <hr/>
+    <!-- <span style="color:red" class="">{{logoutuser}} has logged out!!</span> -->
+     <!-- <span>{{logoutuser}} logged out!!</span> -->
+    </form>
+  </div>
+  
+</div>
+</div>
