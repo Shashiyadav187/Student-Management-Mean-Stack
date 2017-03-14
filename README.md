@@ -1,4 +1,4 @@
-Student Management System
+#Student Management System
 
 A student management system made using MEAN Stack.
 
