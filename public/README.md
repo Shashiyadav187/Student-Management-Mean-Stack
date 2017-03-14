@@ -2,13 +2,13 @@
 
 A student management system made using MEAN Stack with following functionalites.
 
- - Used bootstrap css for styling your pages
+ -Used bootstrap css for styling your pages
 
- - Login
+ -Login
 
- - Signup
+ -Signup
 
- - After login a welcome page with necessary session
+ -After login a welcome page with necessary session
 
        Actions in welcome page
 		a. Add student
