@@ -1,11 +1,26 @@
-# AngularJS Form Validation
+# Student Management System
 
-This is the demo to go along with the [scotch.io](http://scotch.io) tutorial: [AngularJS Form Validation](http://scotch.io/tutorials/javascript/angularjs-form-validation).
+A student management system made using MEAN Stack with following functionalites.
 
-## Demonstration of:
+- Used bootstrap css for styling your pages
 
-- Form Properties ($valid, $invalid, $pristine, $dirty)
-- Showing Errors (ngShow)
-- Conditional Classes (ngClass)
-- Disabled Form (ngDisabled)
-- Custom Validation (ngMinlength and ngMaxlength)
+ - Login
+
+ - Signup
+
+ - After login a welcome page with necessary session
+
+	Action in welcome page
+		1. Add student
+			a. Options to select class
+			b. Enter basic info of the student
+			c. Enter marks obtained for subject1, subject2, subject3	
+
+		2. Monitor Class
+			a. Select class
+			b. Select student
+			c. Shows basic info of the student along with the marks scored in all the subjects
+			along with the average of the marks
+
+		3. Logout
+			a. Clears the session and lands in login page.
