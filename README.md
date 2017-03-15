@@ -21,6 +21,8 @@ A student management system made using MEAN Stack.
                 b. Select student
                 c. Shows basic info of the student along with the marks scored in all the subjects
                 along with the average of the marks
-
-            c. Logout
+                
+            c.Update and Delete Student Record
+            
+            d. Logout
                 a. Clears the session and lands in login page.
