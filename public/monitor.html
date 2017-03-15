@@ -6,8 +6,8 @@
 <div class="container">
 
 <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home">Welcome</a></li>
-        <li><a href="#monitor">Monitor class</a></li>
+        <li><a ng-href="#home" ng-click="welcome()">Welcome</a></li>
+        <li><a ng-href="#monitor" ng-click="monitor()">Monitor class</a></li>
         <li><a ng-href="#" ng-click="logout()">Logout</a></li>
 </ul>
 </div>
@@ -49,6 +49,8 @@
 		<th>{{key.subject2}}</th>
 		<th>{{key.subject3}}</th>
 		<th>Average</th>
+		<th>Edit</th>
+		<th>Delete</th>
 	</thead>
 	<tbody>
 		<tr ng-repeat="key in stu_info">
@@ -59,7 +61,10 @@
 		<td>{{key.mark2}}</td>
 		<td>{{key.mark3}}</td>
 		<td>{{ getAverage() }}</td>
+		<td><button ng-click="edit(key._id)" class="btn btn-primary" >Edit</button></td>
+		<td><button ng-click="delete(key._id)" class="btn btn-danger">Delete</button></td>
 		</tr>
 	</tbody>
 </table>
+
 </div>

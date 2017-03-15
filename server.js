@@ -122,6 +122,15 @@ app.get("/getstudent/:selstu", function(req, res) {
     })
 })
 
+app.get("/edit/:id", function(req,res) {
+	var id = req.params.id;
+	console.log(id);
+
+	db.studentlist.findOne({"_id":mongojs.ObjectId(id)}, function(err,docs) {
+		res.json(docs);
+	})
+})
+
 /*app.post("/studentlist", function(req,res) {
 	console.log("Does it come here again");
 	
@@ -152,6 +161,31 @@ app.get("/subjectlist/:selectedclass", function(req, res) {
         console.log(docs);
         res.json(docs);
     })
+})
+
+app.put('/update/:id', function(req,res) {
+
+    console.log(req.body.name);
+    var id = req.params.id;
+
+    db.studentlist.findAndModify({
+    query: {_id: mongojs.ObjectId(id)},
+    update: {$set: {name: req.body.name, contact: req.body.contact, selectedClass:req.body.selectedClass,
+        subject1:req.body.subject1, subject2: req.body.subject2, subject3: req.body.subject3, mark1:req.body.mark1,
+        mark2:req.body.mark2, mark3:req.body.mark3}},
+    new: true}, function (err, docs) {
+      res.json(docs);
+    }
+  );
+})
+
+app.delete("/delete/:id", function(req,res) {
+    console.log(req.params.id);
+
+    var id = req.params.id;
+    db.studentlist.remove({_id: mongojs.ObjectId(id)} ,function(err,docs) {
+        res.json(docs);
+    });
 })
 
 app.listen(3000);

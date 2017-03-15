@@ -28,7 +28,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		controller: 'NameCtrl'
 	})
 
-
+	.when('/edit', {
+		templateUrl: 'edit.html',
+		controller: 'NameCtrl'
+	})
 	.otherwise({ 
 		redirectTo: '/login' 
 	});
@@ -77,10 +80,12 @@ app.controller('RegisterCtrl', ['$scope','$http', '$location', function($scope, 
 }])*/
 
 
-app.controller('NameCtrl', ['$scope','$http','$rootScope','$location', function ($scope, $http,$rootScope,$location) {
+app.controller('NameCtrl', ['$scope','$http','$rootScope','$location','$route','$window', function ($scope, $http,$rootScope,$location,$route,$window) {
 
 	//$scope.names = ["Javascript", "Php", "Java"];
 
+	//$window.location.reload();
+	//$route.reload();
 	console.log("Hello World from Controller");
 
 	$http.get('/class').success(function(response) {
@@ -111,6 +116,16 @@ app.controller('NameCtrl', ['$scope','$http','$rootScope','$location', function 
 
 
 }
+
+	$scope.welcome = function() {
+		$location.path("/home");
+		$window.location.reload();
+	}
+
+	$scope.monitor = function() {
+		$location.path("/monitor");
+		$window.location.reload();
+	}
 
 	$scope.populate_students = function() {
 		console.log("Populate students");
@@ -186,6 +201,47 @@ app.controller('NameCtrl', ['$scope','$http','$rootScope','$location', function 
 		}
 		})
     }
+
+    $scope.edit = function(id){
+
+    	console.log(id);
+    	
+    	$http.get("/edit/"+id).success(function(response) {
+    		console.log(response);
+    	//	$location.path("/edit");
+    		$rootScope.stu = response;
+    		$location.path("/edit");
+    		//console.log($scope.stu.name);
+    	})
+    }
+
+
+    $scope.updateStudent = function(){
+
+    	$http.put('/update/'+ $scope.stu._id, $scope.stu).success(function(response) {
+			console.log("Record updated");
+			$location.path("/monitor");
+			$window.location.reload();
+			//$scope.stu = "";
+		})
+    }
+
+    $scope.delete = function(id){
+    	console.log(id);
+
+    	$http.delete("/delete/"+id).success(function(response) {
+    	//$location.path("/home");
+    	$route.reload();
+    	console.log("Record deleted");
+
+    	})
+    }
+
+    $scope.back = function() {
+    	$location.path("/monitor");
+    	$window.location.reload();
+    }
+
 }])
 
 
