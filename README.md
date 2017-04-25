@@ -2,7 +2,7 @@
 
 A student management system made using MEAN Stack.
 
--Used bootstrap css for styling your pages
+-Used bootstrap css for styling of pages
 
 -Login
 
